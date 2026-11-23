@@ -139,17 +139,18 @@ code.sourceCode {
 }
 code {
   font-family: Consolas, Monaco, Lucida Console, Liberation Mono, Bitstream Vera Sans Mono, monospace;
+  white-space: pre-wrap; /* wrap inline code */
+  overflow-wrap: break-word /* break words to wrap on mobile */
+}
+pre code {
   white-space: pre; /* make non-syntax-colored code blocks behave like colored ones */
 }
 p code, table code, li code {
   background: #fff5b6;
 }
-table, img {
+img {
   max-width: 80%;
   padding: 0.5em 0.5em 0.5em 0.5em;
-}
-table {
-  border-spacing: 1em 0em;
 }
 /* Fixes iOS font sizing anomaly */
 code {
@@ -157,4 +158,15 @@ code {
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+}
+table {
+  display: block;        /* makes the table behave like a scrollable block */
+  width: max-content;    /* size to the natural table width */
+  max-width: 100%;       /* but never wider than its container */
+  overflow-x: auto;      /* scrollbar when content exceeds the container */
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  border-spacing: 1em 0em;
+}
+table td, table th {
+  white-space: nowrap; /* prevent cell text wrapping */
 }
